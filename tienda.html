@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda creada con Cupid's Closet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="shop-body">
+  <header class="shop-header">
+    <a href="#" class="shop-logo" id="shopName">Mi Tienda</a>
+    <nav>
+      <a href="#catalogo">Productos</a>
+      <a href="#outfit-finder">Encontrá tu outfit</a>
+    </nav>
+    <button class="cart-button" id="cartButton">🛍 <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="shop-hero">
+      <span class="eyebrow">NUEVA COLECCIÓN</span>
+      <h1 id="shopTagline">Tu estilo, a tu manera.</h1>
+      <p>Descubrí prendas pensadas para combinar entre sí.</p>
+      <a class="btn primary" href="#catalogo">Ver colección</a>
+    </section>
+
+    <section id="catalogo" class="shop-section">
+      <div class="shop-section-title">
+        <div><span class="eyebrow">CATÁLOGO</span><h2>Productos</h2></div>
+        <div class="filters">
+          <select id="categoryFilter">
+            <option value="all">Todas las categorías</option>
+            <option value="tops">Tops</option>
+            <option value="abrigos">Abrigos</option>
+            <option value="pantalones">Pantalones</option>
+            <option value="faldas">Faldas</option>
+            <option value="vestidos">Vestidos</option>
+            <option value="calzado">Calzado</option>
+            <option value="accesorios">Accesorios</option>
+          </select>
+          <select id="styleFilter">
+            <option value="all">Todos los estilos</option>
+            <option value="coquette">Coquette</option>
+            <option value="y2k">Y2K</option>
+            <option value="casual">Casual</option>
+            <option value="elegante">Elegante</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="shop-products" id="shopProducts"></div>
+    </section>
+
+    <section id="outfit-finder" class="finder-section">
+      <div class="finder-title">
+        <span class="eyebrow">CUPID MATCH ✨</span>
+        <h2>Encontrá tu outfit</h2>
+        <p>Completá tus preferencias y armamos una combinación con productos de esta tienda.</p>
+      </div>
+
+      <div class="finder-card">
+        <label>Ocasión
+          <select id="occasionInput">
+            <option value="casual">Salida casual</option>
+            <option value="fiesta">Fiesta</option>
+            <option value="cita">Cita</option>
+            <option value="facultad">Facultad / escuela</option>
+          </select>
+        </label>
+
+        <label>Estilo
+          <select id="finderStyle">
+            <option value="coquette">Coquette</option>
+            <option value="y2k">Y2K</option>
+            <option value="casual">Casual</option>
+            <option value="elegante">Elegante</option>
+          </select>
+        </label>
+
+        <label>Presupuesto máximo
+          <input id="budgetInput" type="number" min="0" value="100000">
+        </label>
+
+        <button class="btn primary" id="findOutfitBtn">Encontrar mi outfit ♡</button>
+      </div>
+
+      <div id="outfitResult" class="outfit-result hidden"></div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Tu carrito</h3>
+      <button id="closeCart">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">$0</strong>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <footer class="shop-footer">
+    <small>Tienda creada con Cupid's Closet ♡</small>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="tienda.js"></script>
+</body>
+</html>

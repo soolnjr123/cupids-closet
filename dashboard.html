@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel | Cupid's Closet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="dashboard-body">
+
+  <aside class="sidebar">
+    <a class="logo" href="index.html">Cupid's Closet ♡</a>
+
+    <nav>
+      <button class="nav-item active" data-target="inicio">⌂ <span>Inicio</span></button>
+      <button class="nav-item" data-target="productos">♡ <span>Productos</span></button>
+      <button class="nav-item" data-target="pedidos">▣ <span>Pedidos</span></button>
+      <button class="nav-item" data-target="diseno">✦ <span>Diseño de tienda</span></button>
+      <button class="nav-item" data-target="outfit">✨ <span>Encontrá tu outfit</span></button>
+    </nav>
+
+    <a class="view-store" href="tienda.html">Ver tienda ↗</a>
+  </aside>
+
+  <main class="dashboard-main">
+    <section id="inicio" class="panel-section active">
+      <div class="page-title">
+        <div>
+          <span class="eyebrow">PANEL DE CONTROL</span>
+          <h1>Tu tienda</h1>
+          <p>Administrá todo desde acá.</p>
+        </div>
+        <span class="status">● Tienda activa</span>
+      </div>
+
+      <div class="stats">
+        <article><span>Ventas totales</span><strong>$286.500</strong><small>Este mes</small></article>
+        <article><span>Pedidos</span><strong>18</strong><small>4 pendientes</small></article>
+        <article><span>Productos</span><strong id="productCount">0</strong><small>Publicados</small></article>
+        <article><span>Visitas</span><strong>1.284</strong><small>Últimos 30 días</small></article>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="card">
+          <div class="card-head"><h3>Actividad de ventas</h3><span>Últimos 7 días</span></div>
+          <div class="bars">
+            <i style="height:35%"></i><i style="height:55%"></i><i style="height:42%"></i>
+            <i style="height:72%"></i><i style="height:60%"></i><i style="height:88%"></i><i style="height:75%"></i>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head"><h3>Accesos rápidos</h3></div>
+          <button class="quick" data-go="productos">+ Agregar producto</button>
+          <button class="quick" data-go="diseno">🎨 Personalizar tienda</button>
+          <a class="quick link" href="tienda.html">👁 Ver tienda publicada</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="productos" class="panel-section">
+      <div class="page-title">
+        <div><span class="eyebrow">CATÁLOGO</span><h1>Productos</h1></div>
+        <button class="btn primary" id="openProductForm">+ Nuevo producto</button>
+      </div>
+
+      <form id="productForm" class="card product-form hidden">
+        <h3>Agregar producto</h3>
+        <div class="form-grid">
+          <label>Nombre<input id="nameInput" required placeholder="Ej: Top Rosé"></label>
+          <label>Precio<input id="priceInput" required type="number" min="0" placeholder="25000"></label>
+          <label>Stock<input id="stockInput" required type="number" min="0" value="1"></label>
+          <label>Categoría
+            <select id="categoryInput">
+              <option value="tops">Tops</option>
+              <option value="abrigos">Abrigos</option>
+              <option value="pantalones">Pantalones</option>
+              <option value="faldas">Faldas</option>
+              <option value="vestidos">Vestidos</option>
+              <option value="calzado">Calzado</option>
+              <option value="accesorios">Accesorios</option>
+            </select>
+          </label>
+          <label>Estilo
+            <select id="styleInput">
+              <option value="coquette">Coquette</option>
+              <option value="y2k">Y2K</option>
+              <option value="casual">Casual</option>
+              <option value="elegante">Elegante</option>
+            </select>
+          </label>
+          <label>URL de imagen<input id="imageInput" placeholder="Opcional"></label>
+        </div>
+        <div class="form-actions">
+          <button class="btn secondary" type="button" id="cancelProduct">Cancelar</button>
+          <button class="btn primary" type="submit">Guardar producto</button>
+        </div>
+      </form>
+
+      <div class="card">
+        <div class="table-head">
+          <strong>Producto</strong><strong>Categoría</strong><strong>Stock</strong><strong>Precio</strong><strong></strong>
+        </div>
+        <div id="productTable"></div>
+      </div>
+    </section>
+
+    <section id="pedidos" class="panel-section">
+      <div class="page-title">
+        <div><span class="eyebrow">VENTAS</span><h1>Pedidos</h1></div>
+      </div>
+      <div class="card">
+        <div class="order-row header"><span>Pedido</span><span>Cliente</span><span>Total</span><span>Estado</span></div>
+        <div class="order-row"><span>#1048</span><span>Martina R.</span><span>$22.500</span><span><b class="pill paid">Pagado</b></span></div>
+        <div class="order-row"><span>#1047</span><span>Camila B.</span><span>$18.900</span><span><b class="pill pending">Preparando</b></span></div>
+        <div class="order-row"><span>#1046</span><span>Julieta A.</span><span>$31.000</span><span><b class="pill shipped">Enviado</b></span></div>
+      </div>
+    </section>
+
+    <section id="diseno" class="panel-section">
+      <div class="page-title">
+        <div><span class="eyebrow">PERSONALIZACIÓN</span><h1>Diseño de tienda</h1><p>Estos cambios se reflejan en la tienda de ejemplo.</p></div>
+      </div>
+
+      <div class="design-layout">
+        <form id="designForm" class="card design-form">
+          <label>Nombre de la tienda<input id="shopNameInput" value="Mi Tienda"></label>
+          <label>Eslogan<input id="taglineInput" value="Tu estilo, a tu manera."></label>
+          <label>Color principal<input id="primaryColorInput" type="color" value="#e8a7bd"></label>
+          <label>Color de fondo<input id="backgroundColorInput" type="color" value="#fff8fb"></label>
+          <label>Tipografía
+            <select id="fontInput">
+              <option value="delicada">Delicada</option>
+              <option value="moderna">Moderna</option>
+              <option value="clasica">Clásica</option>
+            </select>
+          </label>
+          <button class="btn primary" type="submit">Guardar diseño</button>
+        </form>
+
+        <div class="store-preview" id="storePreview">
+          <div class="preview-header"><strong id="previewName">Mi Tienda</strong><span>♡</span></div>
+          <div class="preview-hero"><small>NUEVA COLECCIÓN</small><h2 id="previewTagline">Tu estilo, a tu manera.</h2><button>Comprar ahora</button></div>
+          <div class="preview-products">
+            <div></div><div></div><div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outfit" class="panel-section">
+      <div class="page-title">
+        <div>
+          <span class="eyebrow">FUNCIÓN ESPECIAL</span>
+          <h1>Encontrá tu outfit</h1>
+          <p>Configurá la herramienta que usarán los clientes de la tienda.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>¿Cómo funciona?</h3>
+        <p class="muted">El cliente selecciona una ocasión, un estilo y un presupuesto. Cupid's Closet busca productos compatibles y arma una combinación.</p>
+
+        <div class="outfit-config">
+          <label><input type="checkbox" checked> Mostrar selector de ocasión</label>
+          <label><input type="checkbox" checked> Mostrar selector de estilo</label>
+          <label><input type="checkbox" checked> Mostrar presupuesto máximo</label>
+          <label><input type="checkbox" checked> Mostrar precio total del outfit</label>
+        </div>
+
+        <a class="btn primary" href="tienda.html#outfit-finder">Probar en la tienda</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
